@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lời Chúc Trung Thu Động</title>
     <style>
+        /* ========================================================= */
+        /* CẤU TRÚC VÀ NỀN (Giữ nguyên từ code trước) */
+        /* ========================================================= */
         body, html {
             margin: 0;
             padding: 0;
@@ -15,13 +18,13 @@
             color: #333;
         }
 
-      .fullscreen-background {
-    /* Thay 'ten_file_anh_cua_ban.jpg' bằng tên file bạn đã commit lên GitHub */
-    background-image: url('trung thu.png'); 
-    
-    background-size: cover; 
-    background-position: center; 
-    /* ... các thuộc tính khác ... */
+        .fullscreen-background {
+            /* THAY ĐỔI ĐƯỜNG DẪN ẢNH CỦA BẠN TẠI ĐÂY! */
+            /* Ví dụ: url('trung thu.jpg'); */
+            background-image: url('trung thu.jpg'); 
+            
+            background-size: cover; 
+            background-position: center; 
             background-repeat: no-repeat; 
             width: 100%;
             height: 100%;
@@ -32,30 +35,28 @@
         }
 
         .card-container {
-            /* Vị trí và kích thước của "thư ngỏ" trên hình nền */
             position: absolute;
-            width: 70%; /* Chiếm 70% chiều rộng của .fullscreen-background */
-            max-width: 600px; /* Nhưng không quá 600px */
-            background-color: #fefdf9; /* Màu nền kem nhạt giống ảnh */
+            width: 70%;
+            max-width: 600px;
+            background-color: #fefdf9;
             border-radius: 15px;
             padding: 30px 40px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
-            /* Điều chỉnh vị trí để khớp với ảnh gốc */
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -40%); /* Dịch lên một chút so với căn giữa hoàn toàn */
-            height: 60%; /* Tăng chiều cao để chứa nội dung */
+            transform: translate(-50%, -40%);
+            height: 60%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            overflow: hidden; /* Ẩn phần chữ nếu tràn */
+            overflow: hidden;
         }
 
         .card-title {
-            font-family: 'Playfair Display', serif; /* Font chữ giả định giống ảnh */
-            color: #4b423d; /* Màu chữ tiêu đề gần giống ảnh */
+            font-family: 'Playfair Display', serif;
+            color: #4b423d;
             font-size: 2.8em;
             margin-bottom: 5px;
             line-height: 1;
@@ -64,7 +65,7 @@
              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
              font-weight: bold;
              font-size: 1.2em;
-             color: #c95d0b; /* Màu đỏ cam */
+             color: #c95d0b;
              margin-top: 10px;
              margin-bottom: 20px;
         }
@@ -73,8 +74,8 @@
             font-size: 1.2em;
             line-height: 1.7;
             color: #555;
-            text-align: left; /* Căn trái cho đoạn chúc */
-            min-height: 150px; /* Đảm bảo đủ không gian cho đoạn chúc */
+            text-align: left;
+            min-height: 150px;
             margin: 20px 0;
         }
         .signature {
@@ -83,11 +84,49 @@
             color: #666;
             margin-top: 20px;
         }
+
+        /* ========================================================= */
+        /* HIỆU ỨNG MẶT TRĂNG RƠI */
+        /* ========================================================= */
+
+        /* Định nghĩa chuyển động */
+        @keyframes moonfall {
+            0% { 
+                opacity: 1; 
+                transform: translateY(0) rotate(0deg) scale(1); /* Bắt đầu ở đỉnh */
+            }
+            100% { 
+                opacity: 0.2; /* Mờ dần khi rơi */
+                transform: translateY(100vh) rotate(180deg) scale(0.5); /* Rơi xuống cuối màn hình */
+            }
+        }
+
+        /* Phong cách cho biểu tượng mặt trăng */
+        .falling-moon {
+            position: absolute;
+            top: -50px; /* Bắt đầu từ trên cùng */
+            font-size: 40px;
+            color: gold; /* Màu vàng kim */
+            z-index: 10; /* Đảm bảo nó nằm trên nền */
+            user-select: none; /* Không cho phép chọn chữ */
+            
+            /* Áp dụng hiệu ứng động */
+            animation: moonfall 5s linear infinite; /* 5 giây cho 1 lần rơi, lặp vô hạn */
+        }
+
+        /* Tạo thêm nhiều mặt trăng với độ trễ khác nhau */
+        .falling-moon:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .falling-moon:nth-child(2) { left: 45%; font-size: 50px; animation-duration: 6s; animation-delay: 1.5s; }
+        .falling-moon:nth-child(3) { left: 80%; font-size: 35px; animation-duration: 4s; animation-delay: 3s; }
     </style>
 </head>
 <body>
 
     <div class="fullscreen-background">
+        <div class="falling-moon">🌙</div>
+        <div class="falling-moon">🌕</div>
+        <div class="falling-moon">🌙</div>
+        
         <div class="card-container">
             <h2 class="card-title">Chúc Mừng Tết Trung Thu</h2>
             <p class="card-subtitle">Thân gửi các fren 8b ❤️ !</p>
@@ -99,20 +138,26 @@
     </div>
 
     <script>
+        // =========================================================
+        // HIỆU ỨNG GÕ CHỮ (Giữ nguyên từ code trước)
+        // =========================================================
         const textToType = `Ánh trăng Rằm tháng Tám đã lên cao, mang theo không khí ấm áp và sum vầy của Tết Trung thu. Chúc bạn và gia đình có một đêm trăng rằm thật trọn vẹn, ấm cúng, cùng nhau phá cỗ, thưởng thức bánh trung thu ngọt ngào, và trao nhau những tiếng cười hạnh phúc. Chúc mọi điều may mắn và bình an sẽ đến với bạn trong dịp đặc biệt này!`;
         const typedTextElement = document.getElementById('typed-text');
         let charIndex = 0;
-        const typingSpeed = 50; // Tốc độ gõ (milliseconds per character)
+        const typingSpeed = 50; 
 
         function typeWriter() {
             if (charIndex < textToType.length) {
+                // Thêm <br> để xuống dòng cho dễ đọc hơn
+                if (charIndex === 99 || charIndex === 190) { // Ví dụ: xuống dòng sau 100 và 200 ký tự
+                    typedTextElement.innerHTML += '<br>';
+                }
                 typedTextElement.innerHTML += textToType.charAt(charIndex);
                 charIndex++;
                 setTimeout(typeWriter, typingSpeed);
             }
         }
 
-        // Bắt đầu hiệu ứng gõ khi trang tải xong
         window.onload = typeWriter;
     </script>
 
