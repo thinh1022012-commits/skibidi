@@ -90,43 +90,55 @@
         /* ========================================================= */
 
         /* Định nghĩa chuyển động */
-        @keyframes moonfall {
+        @ @keyframes moonfall {
             0% { 
                 opacity: 1; 
-                transform: translateY(0) rotate(0deg) scale(1); /* Bắt đầu ở đỉnh */
+                transform: translateY(0) rotate(0deg) scale(1);
             }
             100% { 
-                opacity: 0.2; /* Mờ dần khi rơi */
-                transform: translateY(100vh) rotate(180deg) scale(0.5); /* Rơi xuống cuối màn hình */
+                opacity: 0.2;
+                transform: translateY(100vh) rotate(180deg) scale(0.5); 
             }
         }
 
         /* Phong cách cho biểu tượng mặt trăng */
         .falling-moon {
             position: absolute;
-            top: -50px; /* Bắt đầu từ trên cùng */
-            font-size: 40px;
-            color: gold; /* Màu vàng kim */
-            z-index: 10; /* Đảm bảo nó nằm trên nền */
-            user-select: none; /* Không cho phép chọn chữ */
+            top: -50px; 
+            font-size: 35px; /* Kích thước nhỏ hơn một chút cho hiệu ứng mưa */
+            color: #ffde54; /* Màu vàng sáng hơn */
+            z-index: 10;
+            user-select: none;
             
             /* Áp dụng hiệu ứng động */
-            animation: moonfall 5s linear infinite; /* 5 giây cho 1 lần rơi, lặp vô hạn */
+            animation: moonfall 4s linear infinite; /* Rơi NHANH HƠN: 4s cho 1 lần rơi */
         }
 
-        /* Tạo thêm nhiều mặt trăng với độ trễ khác nhau */
-        .falling-moon:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .falling-moon:nth-child(2) { left: 45%; font-size: 50px; animation-duration: 6s; animation-delay: 1.5s; }
-        .falling-moon:nth-child(3) { left: 80%; font-size: 35px; animation-duration: 4s; animation-delay: 3s; }
+        /* Tạo 8 "vệt" trăng rơi với vị trí và độ trễ khác nhau */
+        /* Giúp chúng rơi liên tục và dày đặc hơn */
+        .falling-moon:nth-child(1) { left: 5%; animation-delay: 0s; animation-duration: 4.2s; }
+        .falling-moon:nth-child(2) { left: 15%; font-size: 28px; animation-delay: 1s; animation-duration: 5s; }
+        .falling-moon:nth-child(3) { left: 30%; font-size: 40px; animation-delay: 2s; animation-duration: 3.8s; }
+        .falling-moon:nth-child(4) { left: 45%; animation-delay: 3s; animation-duration: 4.5s; }
+        .falling-moon:nth-child(5) { left: 60%; font-size: 30px; animation-delay: 0.5s; animation-duration: 5.5s; }
+        .falling-moon:nth-child(6) { left: 75%; animation-delay: 1.8s; animation-duration: 3.5s; }
+        .falling-moon:nth-child(7) { left: 90%; font-size: 25px; animation-delay: 4s; animation-duration: 4.8s; }
+        .falling-moon:nth-child(8) { left: 20%; font-size: 45px; animation-delay: 2.5s; animation-duration: 4s; }
+
+        /* ... Giữ nguyên các phần CSS còn lại ... */
     </style>
-</head>
-<body>
 
     <div class="fullscreen-background">
         <div class="falling-moon">🌙</div>
         <div class="falling-moon">🌕</div>
         <div class="falling-moon">🌙</div>
+        <div class="falling-moon">🌕</div>
+        <div class="falling-moon">🌙</div>
+        <div class="falling-moon">🌕</div>
+        <div class="falling-moon">🌙</div>
+        <div class="falling-moon">🌕</div>
         
+        </div>
         <div class="card-container">
             <h2 class="card-title">Chúc Mừng Tết Trung Thu</h2>
             <p class="card-subtitle">Thân gửi các fren 8b ❤️ !</p>
